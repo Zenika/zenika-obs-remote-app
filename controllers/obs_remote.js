@@ -9,7 +9,7 @@ exports.remote_get_open_connection = (req, res, next) => {
         .then(result => {
             res.status(200).json({
                 message: "Connection to obs succeeded!",
-                response: result
+                data: result
             });
         })
         .catch(err => {
@@ -37,7 +37,7 @@ exports.remote_post_start_recording = (req, res, next) => {
             res.status(200).json({
                 message: "You're now recording! \n " +
                     "Recording started at : " + result.startedAt,
-                response: result
+                data: result
             });
         })
         .catch(err => {
@@ -55,7 +55,7 @@ exports.remote_post_stop_recording = (req, res, next) => {
                 message: "Recording has been stopped! " +
                     "It started at " + remote.infos.startedAt +
                     "Record duration : " + remote.infos.recorded.toString(),
-                response: result
+                data: result
             });
         })
         .catch(err => {
@@ -64,4 +64,19 @@ exports.remote_post_stop_recording = (req, res, next) => {
                 error: err
             });
         });
-}
+};
+
+exports.remote_get_scenes = (req, res, next) => {
+    remote.getScenes(obs)
+        .then(result => {
+            res.status(200).json({
+                data: result
+            });
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: "An error occured",
+                error: err
+            });
+        });
+};

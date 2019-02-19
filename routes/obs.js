@@ -10,4 +10,6 @@ router.get('/stop-recording', remoteController.remote_post_stop_recording);
 
 router.get('/close', remoteController.remote_get_close_connection);
 
+router.get('/scenes', remoteController.remote_get_scenes);
+
 module.exports = router;

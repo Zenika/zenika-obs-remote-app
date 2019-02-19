@@ -1,16 +1,19 @@
+const config = require('../config');
+
 const remote = {
     infos: {
         connected: false,
         recording: false,
         stopped: true,
         startedAt: 0,
-        recorded: 0
+        recorded: 0,
+        scenes: []
     },
 
     openConnection: function(obs) {
         let result = obs.connect({
-            address: 'localhost:4444',
-            password: '$up3rSecretP@ssw0rd'
+            address: config.obs.host.concat(':').concat(config.obs.port),
+            password: config.obs.pwd
         })
             .then(() => {
                 console.log("Success! We're connected & authenticated.");
@@ -88,7 +91,28 @@ const remote = {
         });
 
         return result;
+    },
+
+    getScenes: function (obs) {
+        let result = obs.send('GetSceneList')
+            .then(response => {
+                console.log("Retrieving scenes list");
+                //console.log(response.scenes);
+                this.infos.scenes = response.scenes;
+                return this.infos.scenes;
+            })
+            .catch(err => {
+                console.log(err);
+                throw err;
+            });
+
+        // Avoiding uncaught exceptions.
+        obs.on('error', err => {
+            console.error('socket error:', err);
+        });
+
+        return result;
     }
-}
+};
 
 module.exports = remote;
