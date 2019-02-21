@@ -80,3 +80,13 @@ exports.remote_get_scenes = (req, res, next) => {
             });
         });
 };
+
+exports.remote_post_set_current_scene = (req, res, next) => {
+    remote.setCurrentScene(obs, req.query['scene-name'])
+        .catch(err => {
+            res.status(500).json({
+                message: "An error occured",
+                error: err
+            });
+        });
+};

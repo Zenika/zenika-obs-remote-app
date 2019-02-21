@@ -40,7 +40,7 @@ describe('Testing obs remote when everything is ok', function() {
         const obsMock = sinon.mock(obs);
         obsMock.expects("send").once().withArgs('StopRecording')
             .returns(
-                new Promise(function(resolve, reject){
+                new Promise(function(resolve, reject) {
                     resolve({
                         status: "ok"
                     });
@@ -59,6 +59,66 @@ describe('Testing obs remote when everything is ok', function() {
 
         obsMock.verify();
     });
+
+    it('Retrieve scenes list from OBS', function() {
+        const obsMock = sinon.mock(obs);
+        obsMock.expects("send").once().withArgs('GetSceneList')
+            .returns(
+                new Promise(function(resolve, reject) {
+                    let scenes = [
+                        { name: 'Scene1', sources: [] },
+                        { name: 'Scene2', sources: [] },
+                        { name: 'Scene3', sources: [] }
+                    ];
+                    resolve({
+                        scenes: scenes
+                    });
+                })
+            );
+
+        remote.getScenes(obs)
+            .then(result => {
+                assert.equal(3, result.length, 'Assertion passed');
+                console.log("Test gone well");
+                console.log(result);
+            })
+            .catch(err => {
+                console.log('Error while testing obs_remote.getScenes');
+                console.log(err);
+            });
+
+        obsMock.verify();
+    });
+
+    /*it('Set the current scene', function() {
+        const obsMock = sinon.mock(obs);
+        obsMock.expects("send").once().withArgs('SetCurrentScene')
+            .returns(
+                new Promise(function(resolve, reject) {
+                    let scenes = [
+                        { name: 'Scene1', sources: [] },
+                        { name: 'Scene2', sources: [] },
+                        { name: 'Scene3', sources: [] }
+                    ];
+                    resolve({
+                        scenes: scenes
+                    });
+                })
+            );
+
+        remote.getScenes(obs)
+            .then(result => {
+                assert.equal(3, result.length, 'Assertion passed');
+                console.log("Test gone well");
+                console.log(result);
+            })
+            .catch(err => {
+                console.log('Error while testing obs_remote.getScenes');
+                console.log(err);
+            });
+
+        obsMock.verify();
+    });*/
 });
 
 describe('Testing obs remote when nothing is ok', function() {

@@ -39,6 +39,4 @@ const config = {
     test
 };
 
-console.log(config[env]);
-
 module.exports = config[env];
