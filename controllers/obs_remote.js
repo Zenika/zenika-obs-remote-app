@@ -81,8 +81,30 @@ exports.remote_get_scenes = (req, res, next) => {
         });
 };
 
+exports.remote_get_current_scene = (req, res, next) => {
+    remote.getCurrentScene(obs)
+        .then(result => {
+            res.status(200).json({
+                data: result
+            });
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: "An error occured",
+                error: err
+            });
+        });
+};
+
 exports.remote_post_set_current_scene = (req, res, next) => {
+    console.log('API.Controller - setting current scene to ' + req.query['scene-name']);
     remote.setCurrentScene(obs, req.query['scene-name'])
+        .then(result => {
+            res.status(200).json({
+                status: 'ok'
+            });
+            console.log("API - Scene have been changed");
+        })
         .catch(err => {
             res.status(500).json({
                 message: "An error occured",

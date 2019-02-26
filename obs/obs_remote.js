@@ -114,8 +114,28 @@ const remote = {
         return result;
     },
 
+    getCurrentScene: function(obs) {
+        let result = obs.send('GetCurrentScene')
+            .then(response => {
+                const sceneName = response.name;
+                console.log('Current scene is ' + sceneName);
+                return sceneName;
+            })
+            .catch(err => {
+                console.log(err);
+                throw err;
+            });
+
+        // Avoiding uncaught exceptions.
+        obs.on('error', err => {
+            console.error('socket error:', err);
+        });
+
+        return result;
+    },
+
     setCurrentScene: function(obs, sceneName) {
-        obs.send('SetCurrentScene', {
+        let result = obs.send('SetCurrentScene', {
             'scene-name': sceneName
         })
             .then(response => {
@@ -124,7 +144,14 @@ const remote = {
             .catch(err => {
                 console.log(err);
                 throw err;
-            })
+            });
+
+        // Avoiding uncaught exceptions.
+        obs.on('error', err => {
+            console.error('socket error:', err);
+        });
+
+        return result;
     }
 };
 
