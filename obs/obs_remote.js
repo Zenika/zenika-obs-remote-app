@@ -138,9 +138,6 @@ const remote = {
         let result = obs.send('SetCurrentScene', {
             'scene-name': sceneName
         })
-            .then(response => {
-                console.log('Changing current scene to ' + sceneName);
-            })
             .catch(err => {
                 console.log(err);
                 throw err;
