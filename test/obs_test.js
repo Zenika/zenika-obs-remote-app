@@ -6,9 +6,13 @@ const remote = require('../obs/obs_remote');
 
 const obs = new OBSWebSocket();
 
-/*before( function () {
+before( function () {
     remote.openConnection(obs);
-});*/
+});
+
+after( function () {
+    remote.closeConnection(obs);
+});
 
 describe('Testing obs remote when everything is ok', function() {
 
@@ -34,30 +38,6 @@ describe('Testing obs remote when everything is ok', function() {
 
         obsMock.verify();
         //assert.isTrue(remote.startRecording(), "OBS started recording");
-    });
-
-    it('Verify that OBS stopped recording', function() {
-        const obsMock = sinon.mock(obs);
-        obsMock.expects("send").once().withArgs('StopRecording')
-            .returns(
-                new Promise(function(resolve, reject) {
-                    resolve({
-                        status: "ok"
-                    });
-                }));
-
-        remote.stopRecording(obs)
-            .then(result => {
-                console.log("Test gone well");
-                console.log(result);
-            })
-            .catch(err => {
-                console.log("Error while testing obs_remote.stopRecording");
-                console.log(err);
-            });
-
-
-        obsMock.verify();
     });
 
     it('Retrieve scenes list from OBS', function() {
@@ -86,6 +66,30 @@ describe('Testing obs remote when everything is ok', function() {
                 console.log('Error while testing obs_remote.getScenes');
                 console.log(err);
             });
+
+        obsMock.verify();
+    });
+
+    it('Verify that OBS stopped recording', function() {
+        const obsMock = sinon.mock(obs);
+        obsMock.expects("send").once().withArgs('StopRecording')
+            .returns(
+                new Promise(function(resolve, reject) {
+                    resolve({
+                        status: "ok"
+                    });
+                }));
+
+        remote.stopRecording(obs)
+            .then(result => {
+                console.log("Test gone well");
+                console.log(result);
+            })
+            .catch(err => {
+                console.log("Error while testing obs_remote.stopRecording");
+                console.log(err);
+            });
+
 
         obsMock.verify();
     });
@@ -186,7 +190,3 @@ describe('Testing obs remote when nothing is ok', function() {
         obsMock.verify();
     });
 });
-
-/*after( function () {
-    remote.closeConnection(obs);
-});*/
