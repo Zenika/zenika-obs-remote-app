@@ -1,0 +1,11 @@
+{
+  "commands": {
+    "open_connection": "/connection/open",
+    "close_connection": "/connection/close",
+    "start_recording": "/recording/start",
+    "stop_recording": "/recording/stop",
+    "get_current_scene": "/current-scene",
+    "set_current_scene": "/current-scene/set",
+    "get_scenes": "/scenes"
+  }
+}
