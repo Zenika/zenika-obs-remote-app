@@ -1,0 +1,45 @@
+{
+  "name": "front-obs-remote",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit"
+  },
+  "dependencies": {
+    "@videojs/http-streaming": "^1.9.0",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.2.1",
+    "buefy": "^0.7.2",
+    "jquery": "^3.3.1",
+    "node-fetch": "^2.3.0",
+    "popper.js": "^1.14.6",
+    "videojs-contrib-hls": "^5.15.0",
+    "vue": "^2.5.21",
+    "vue-class-component": "^6.0.0",
+    "vue-material-design-icons": "^2.6.0",
+    "vue-property-decorator": "^7.0.0",
+    "vue-router": "^3.0.1",
+    "vuetify": "^1.5.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.0",
+    "@types/mocha": "^5.2.4",
+    "@vue/cli-plugin-babel": "^3.3.0",
+    "@vue/cli-plugin-eslint": "^3.3.0",
+    "@vue/cli-plugin-typescript": "^3.3.0",
+    "@vue/cli-plugin-unit-mocha": "^3.3.0",
+    "@vue/cli-service": "^3.3.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "@vue/eslint-config-typescript": "^3.2.0",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.1.2",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "typescript": "^3.3.3",
+    "vue-template-compiler": "^2.5.21"
+  }
+}
