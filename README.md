@@ -9,47 +9,49 @@ Before running the app, you'll have to set project's modules in this order:
 3. Set the API
 4. Set the web application 
 
+
 ### Proxy config 
 
 Get the necessary tools to build nginx:  
 ```
-$ sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev 
+sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev 
 ```
 
 From your home directory, get the nginx source code:  
 ```
-$ wget http://nginx.org/download/nginx-1.15.1.tar.gz
+wget http://nginx.org/download/nginx-1.15.1.tar.gz
 ``` 
 or higher version
 
 Next, get the RTMP module source code from git:  
 ```
-$ wget https://github.com/sergey-dryabzhinsky/nginx-rtmp-module/archive/dev.zip
+wget https://github.com/sergey-dryabzhinsky/nginx-rtmp-module/archive/dev.zip
 ```
 
 Unpack/unzip them both, and enter the nginx directory:  
 ```
-$ tar -zxvf nginx-1.15.1.tar.gz
-$ unzip dev.zip
-$ cd nginx-1.15.1 
+tar -zxvf nginx-1.15.1.tar.gz
+unzip dev.zip
+cd nginx-1.15.1 
 ```
 
 Build nginx:
 ```
-$ ./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-dev
-$ make
-$ sudo make install 
+./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-dev
+make
+sudo make install 
 ```
 
 Start nginx first with the command below:  
 ```
-$ sudo /usr/local/nginx/sbin/nginx
+sudo /usr/local/nginx/sbin/nginx
 ```
 
 To stop nginx:
 ```
-$ sudo /usr/local/nginx/sbin/nginx -s stop
+sudo /usr/local/nginx/sbin/nginx -s stop
 ```
+
 
 ### OBS config
 
@@ -90,10 +92,78 @@ Create sources
 
 In the **audio mixer** box, mute *dericam* and *Mic/Aux* 
 
+
 ### API config
 
-This api uses some environment variables, so make sure to set them before starting.
-* `NODE_ENV` in order to set the mode to **dev**, **test** or **prod**  
-`export NODE_ENV=<mode>`
+This api uses some environment variables, so make sure to set them before starting.  
+In order to set the mode to **dev**, **test** or **prod**  
+First get into the **/api** folder
+``` 
+export NODE_ENV=<mode>
+```
 
-Then run the api with `npm run start`
+Then run the api with 
+```
+npm run start
+```
+
+
+### Web-App Config
+Get all dependancies by running
+```
+npm install
+```
+Then set some environment variables before running.  
+In order to set the mode.
+Available modes are : **development** and **production**
+First get into the **/web-app** folder
+```
+export NODE_ENV=<mode>
+```
+* **api-host**: hostname of the obs remote api. Default is localhost
+
+* **api-port**: port used by the obs remote api. Default is 3000
+
+```
+export VUE_APP_API_REMOTE_URL=<api-host>:<api-host:port>/obs
+```
+* **proxy-host**: hostname of the proxy server for hls streaming. Default is localhost
+
+* **api-port**: port used by the proxy server. Default is 8090  
+```
+export VUE_APP_PREVIEW_URL=<proxy-host>:<proxy-port>/hls/<video-stream-name>.m3u8
+```
+
+Then run 
+```
+npm run serve
+```
+
+Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+Compiles and minifies for production
+```
+npm run build
+```
+
+Run your tests
+```
+npm run test
+```
+
+Lints and fixes files
+```
+npm run lint
+```
+
+Run your unit tests
+```
+npm run test:unit
+```
+
+Customizing configuration
+
+See [Configuration Reference](https://cli.vuejs.org/config/).

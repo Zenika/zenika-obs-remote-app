@@ -22,30 +22,31 @@ First, set some environment variables before starting.
 
 Then run `npm run serve`
 
-### Compiles and hot-reloads for development
+Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+Compiles and minifies for production
 ```
 npm run build
 ```
 
-### Run your tests
+Run your tests
 ```
 npm run test
 ```
 
-### Lints and fixes files
+Lints and fixes files
 ```
 npm run lint
 ```
 
-### Run your unit tests
+Run your unit tests
 ```
 npm run test:unit
 ```
 
-### Customize configuration
+Customizing configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).

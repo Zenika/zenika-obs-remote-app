@@ -1,13 +1,17 @@
 <template>
   <div class="container" id="main">
     <img alt="Vue logo" src="../assets/logo.png">
-    <v-card>
-      <v-card-title>
-        <h2><strong>OBS REMOTE WEB-APP</strong></h2>
-      </v-card-title>
-      <LivePreview/>
-      <Commands/>
-    </v-card>
+    <div class="columns">
+      <div class="column is-10 is-offset-1">
+        <v-card>
+          <v-card-title>
+            <h2><strong>OBS REMOTE WEB-APP</strong></h2>
+          </v-card-title>
+          <LivePreview/>
+          <Commands/>
+        </v-card>
+      </div>
+    </div>
   </div>
 </template>
 

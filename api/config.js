@@ -38,7 +38,7 @@ const prod = {
         port: parseInt(process.env.PROD_OBS_PORT) || 4444,
         pwd:  process.env.PROD_OBS_PWD || '$up3rSecretP@ssw0rd'
     }
-};;
+};
 
 const config = {
     dev,
