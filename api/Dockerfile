@@ -14,7 +14,7 @@ RUN npm ci --only=production
 COPY . .
 
 
-FROM base AS prod
+FROM api-base AS prod
 #set environment variables
 ENV NODE_ENV=prod
 
