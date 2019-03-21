@@ -42,15 +42,12 @@ export default {
   components: {
   },
   data: function() {
-    // const scenes = [];
     return {
       live_url: process.env.VUE_APP_PREVIEW_URL,
       headers: [
         { text: 'Scènes', value: 'name' }
       ],
       scenes: [],
-      // numbers: [{ id: 0, value: '123' }, { id: 1, value: '456' }, { id: 2, value: '789' }],
-      // selected: scenes['Main'],
       columns: [
         {
           field: 'name',
