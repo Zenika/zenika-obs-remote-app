@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  proxy:
+    container_name: proxy
+    build: ./proxy
+    ports:
+      - 80:80
+      - 1935:1935
+      - 8090:8090
+    depends_on:
+      - api
+      - web-app
+#    network_mode: "host"
+
+  api:
+    container_name: api
+    build: ./api
+    environment:
+      - NODE_ENV=dev
+    expose:
+      - "3000"
+    network_mode: "host"
+
+  web-app:
+    container_name: web-app
+    build: ./web-app
+    env_file: config/webapp_config/.env.development
+    expose:
+      - "8080"
+    network_mode: "host"
+
+networks:
+  obs-network:
+    driver: overlay
+#  proxy-webapp-network:
+#    driver: overlay
+#  api-webapp-network:
+#    driver: overlay

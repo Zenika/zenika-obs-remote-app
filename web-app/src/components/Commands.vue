@@ -7,11 +7,11 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import api from '../config/api.json';
+import api from '../../api.json';
 import preview from './LivePreview.vue';
 
 const axios = require('axios');
-const apiURL = process.env.VUE_APP_API_REMOTE_URL;
+const apiURL = process.env.VUE_APP_API_URL;
 
 @Component({
   components: {

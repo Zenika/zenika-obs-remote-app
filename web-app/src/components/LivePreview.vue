@@ -29,14 +29,14 @@
 import videojs from 'video.js';
 import 'videojs-contrib-hls';
 import { Scene } from '@/entities/scene';
-import api from '../config/api.json';
+import api from '../../api.json';
 
 const axios = require('axios');
 const fetch = require('node-fetch');
 // const { URLSearchParams } = require('url');
 
-const apiURL = process.env.VUE_APP_API_REMOTE_URL;
-
+const apiURL = process.env.VUE_APP_API_URL;
+console.log(apiURL);
 export default {
   name: 'LivePreview',
   components: {

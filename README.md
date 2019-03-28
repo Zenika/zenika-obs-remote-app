@@ -71,7 +71,7 @@ Create sources
 >> With sources in this order:  
 >> *sticker*, *speaker-screan*, *dericam*, *mic*  
 >> Manage to dispose sources in order to have the same picture as
-![scene_main!](./obs_config/scene_main.png "scene_main")
+![scene_main!](config/obs_config/scene_main.png "scene_main")
 
 > - Screen
 >> With sources in this order:  
@@ -80,7 +80,7 @@ Create sources
 >> With sources in this order:  
 >> *sticker*, *dericam*, *mic*  
 >> Manage to dispose sources in order to have the same picture as
-![scene_speaker!](./obs_config/scene_speaker.png "scene_speaker")
+![scene_speaker!](config/obs_config/scene_speaker.png "scene_speaker")
 > - OBS
 >> With sources in this order:  
 >> *obs-screan*, *mic*  
@@ -88,7 +88,7 @@ Create sources
 >> With sources in this order:  
 >> *sticker*, *background*  
 >> Manage to dispose sources in order to have the same picture as
-![standby!](./obs_config/standby.png "scene_speaker")
+![standby!](config/obs_config/standby.png "scene_speaker")
 
 In the **audio mixer** box, mute *dericam* and *Mic/Aux* 
 
@@ -97,14 +97,19 @@ In the **audio mixer** box, mute *dericam* and *Mic/Aux*
 
 This api uses some environment variables, so make sure to set them before starting.  
 In order to set the mode to **dev**, **test** or **prod**  
-First get into the **/api** folder
 ``` 
-export NODE_ENV=<mode>
+source config/.env.api.<mode>
 ```
+You can configure those files located at **config/.env.api.***
 
 Then run the api with 
 ```
 npm run start
+```
+
+Later with docker
+```
+docker run --rm -p 3000:3000 --env-file=config/.env.api.dev --name api --network=host --hostname=api api-for-obs
 ```
 
 
@@ -116,28 +121,21 @@ npm install
 Then set some environment variables before running.  
 In order to set the mode.
 Available modes are : **development** and **production**
-First get into the **/web-app** folder
 ```
-export NODE_ENV=<mode>
+source config/.env.webapp.<mode>
 ```
+You can configure those files located at **config/.env.webapp.***
+
+**VUE_APP_API_REMOTE_URL=<api-host>:<api-host:port>/obs**
 * **api-host**: hostname of the obs remote api. Default is localhost
 
 * **api-port**: port used by the obs remote api. Default is 3000
 
-```
-export VUE_APP_API_REMOTE_URL=<api-host>:<api-host:port>/obs
-```
+**VUE_APP_PREVIEW_URL=<proxy-host>:<proxy-port>/hls/<video-stream-name>.m3u8**
 * **proxy-host**: hostname of the proxy server for hls streaming. Default is localhost
 
-* **api-port**: port used by the proxy server. Default is 8090  
-```
-export VUE_APP_PREVIEW_URL=<proxy-host>:<proxy-port>/hls/<video-stream-name>.m3u8
-```
+* **api-port**: port used by the proxy server. Default is 8090   
 
-Then run 
-```
-npm run serve
-```
 
 Compiles and hot-reloads for development
 ```
@@ -147,6 +145,11 @@ npm run serve
 Compiles and minifies for production
 ```
 npm run build
+```
+
+Docker command
+```
+docker run --rm -p 8080:5000 --env-file=config/webapp_config/.env.production -v /home/zenika/projects/obs/zenika-obs-remote-app/config/webapp_config/api.json:/app/api.json --name web-app web-app-for-obs
 ```
 
 Run your tests
