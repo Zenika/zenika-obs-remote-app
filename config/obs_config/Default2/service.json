@@ -1,0 +1,7 @@
+{
+    "settings": {
+        "key": "test",
+        "server": "rtmp://localhost:1935/live"
+    },
+    "type": "rtmp_custom"
+}

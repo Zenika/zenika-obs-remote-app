@@ -1,8 +1,8 @@
 FROM node:lts-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
-#RUN npm ci --only=production
+#RUN npm install
+RUN npm ci --only=production
 COPY . .
 EXPOSE 8080
 #RUN npm run build

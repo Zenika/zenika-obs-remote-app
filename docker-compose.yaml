@@ -4,6 +4,8 @@ services:
   proxy:
     container_name: proxy
     build: ./proxy
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/nginx.conf
     ports:
       - 80:80
       - 1935:1935
@@ -16,6 +18,8 @@ services:
   api:
     container_name: api
     build: ./api
+    volumes:
+      - ./config/api_config/config.js:/usr/src/app/config.js
     environment:
       - NODE_ENV=dev
     expose:
