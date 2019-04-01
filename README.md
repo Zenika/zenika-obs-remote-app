@@ -49,7 +49,7 @@ docker build -t api-for-obs api/
 
 Run a docker container:
 ```
-docker run --rm -p 3000:3000 -e NODE_ENV=<mode> -v <absolute-path-to-your-local-repo>/config/api_config/config.js:/usr/src/app/config.js --net=host --name api -d api-for-obs
+docker run --rm -p 3000:3000 -e NODE_ENV=<mode> -v <absolute-path-to-your-local-file>/config/api_config/config.js:/usr/src/app/config.js --net=host --name api -d api-for-obs
 ```
 
 
@@ -78,5 +78,5 @@ docker build -t web-app-for-obs web-app/
 
 Run a docker container :
 ```
-docker run --rm -p 8080:8080 --env-file=config/webapp_config/.env.<mode> --net=host --name web-app -d web-app-for-obs
+docker run --rm -p 8080:8080 --env-file=config/webapp_config/.env.<mode> -v <absolute-path-to-your-local-file>:/app/api.json --net=host --name web-app -d web-app-for-obs
 ```

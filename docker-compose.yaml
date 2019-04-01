@@ -29,6 +29,8 @@ services:
   web-app:
     container_name: web-app
     build: ./web-app
+    volumes:
+      - ./config/webapp_config/api.json:/app/api.json
     env_file: config/webapp_config/.env.development
     expose:
       - "8080"

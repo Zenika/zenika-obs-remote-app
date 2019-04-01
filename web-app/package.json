@@ -10,6 +10,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@types/sinon": "^7.0.10",
     "@videojs/http-streaming": "^1.9.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
@@ -32,7 +33,7 @@
     "@vue/cli-plugin-eslint": "^3.3.0",
     "@vue/cli-plugin-typescript": "^3.3.0",
     "@vue/cli-plugin-unit-mocha": "^3.3.0",
-    "@vue/cli-service": "^3.3.0",
+    "@vue/cli-service": "^3.5.3",
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/eslint-config-typescript": "^3.2.0",
     "@vue/test-utils": "^1.0.0-beta.20",
@@ -40,7 +41,9 @@
     "chai": "^4.1.2",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
-    "typescript": "^3.3.3",
+    "request": "^2.83.0",
+    "sinon": "^7.3.1",
+    "typescript": "^3.1.1",
     "vue-template-compiler": "^2.5.21"
   }
 }
