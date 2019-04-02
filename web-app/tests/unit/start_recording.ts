@@ -1,10 +1,10 @@
-import * as sinon from 'sinon'
+/* import * as sinon from 'sinon'
 import * as chai from 'chai'
 import * as request from 'request'
 
 const apiURL = process.env.VUE_APP_API_URL;
 
-describe('Setting up test variables', () => {
+ describe('Setting up test variables', () => {
   beforeEach(() => {
     const responseObject = {
       statusCode: 200,
@@ -56,4 +56,4 @@ describe('Setting up test variables', () => {
       });
     })
   });
-});
+}); */

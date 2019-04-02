@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const remoteController = require('../controllers/obs_remote');
+const remoteController = require('../controllers/obs_controller');
 
 router.get('/connection/open', remoteController.remote_get_open_connection);
 

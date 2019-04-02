@@ -2,7 +2,7 @@ const assert = require('chai').assert;
 const sinon = require('sinon');
 
 const OBSWebSocket = require('obs-websocket-js');
-const remote = require('../obs/obs_remote');
+const remote = require('../remotes/obs_remote');
 
 const obs = new OBSWebSocket();
 

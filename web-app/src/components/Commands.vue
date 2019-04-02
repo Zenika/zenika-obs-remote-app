@@ -2,6 +2,10 @@
   <v-card-actions>
     <v-btn flat color="red" v-on:click="startRecording">play</v-btn>
     <v-btn flat color="grey" v-on:click="stopRecording">stop</v-btn>
+    <v-btn flat color="grey" v-on:click="moveCamera('up')">up</v-btn>
+    <v-btn flat color="grey" v-on:click="moveCamera('down')">down</v-btn>
+    <v-btn flat color="grey" v-on:click="moveCamera('right')">right</v-btn>
+    <v-btn flat color="grey" v-on:click="moveCamera('left')">left</v-btn>
   </v-card-actions>
 </template>
 
@@ -31,6 +35,26 @@ const apiURL = process.env.VUE_APP_API_URL;
       axios.post(apiURL.concat(api.commands.stop_recording))
         .then(alert('Recording stopped'))
         .catch((error: any) => alert(error));
+    },
+    moveCamera(direction: string) {
+      switch (direction) {
+        case 'up': {
+          axios.get(api.commands.move_up);
+          break;
+        }
+        case 'down': {
+          axios.get(api.commands.move_down);
+          break;
+        }
+        case 'rigth': {
+          axios.get(api.commands.move_right);
+          break;
+        }
+        case 'left': {
+          axios.get(api.commands.move_left);
+          break;
+        }
+      }
     }
   }
 })
