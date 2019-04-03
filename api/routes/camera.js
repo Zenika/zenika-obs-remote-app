@@ -10,4 +10,6 @@ router.get('/move-right', remoteController.remote_get_camera_move_right);
 
 router.get('/move-left', remoteController.remote_get_camera_move_left);
 
+router.get('/stop', remoteController.remote_get_camera_stop);
+
 module.exports = router;

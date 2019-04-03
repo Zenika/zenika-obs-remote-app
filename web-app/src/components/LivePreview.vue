@@ -2,7 +2,7 @@
   <div class="columns">
     <div class="column is-8 is-offset-1">
       <video id="player-preview" autoplay>
-        <!--source :src="live_url" type="application/x-mpegURL"-->
+        <source :src="live_url" type="application/x-mpegURL">
       </video>
     </div>
     <div class="column is-2" id="board-remote-scenes">

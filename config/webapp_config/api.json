@@ -1,11 +1,16 @@
 {
   "commands": {
-    "open_connection": "/connection/open",
-    "close_connection": "/connection/close",
-    "start_recording": "/recording/start",
-    "stop_recording": "/recording/stop",
-    "get_current_scene": "/current-scene",
-    "set_current_scene": "/current-scene/set",
-    "get_scenes": "/scenes"
+    "open_connection": "/obs/connection/open",
+    "close_connection": "/obs/connection/close",
+    "start_recording": "/obs/recording/start",
+    "stop_recording": "/obs/recording/stop",
+    "get_current_scene": "/obs/current-scene",
+    "set_current_scene": "/obs/current-scene/set",
+    "get_scenes": "/obs/scenes",
+    "move_up": "/camera/move-up",
+    "move_down": "/camera/move-down",
+    "move_right": "/camera/move-right",
+    "move_left": "/camera/move-left",
+    "stop_moving": "/camera/stop"
   }
 }

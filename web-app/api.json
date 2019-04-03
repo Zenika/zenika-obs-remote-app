@@ -1,16 +1,16 @@
 {
   "commands": {
-    "open_connection": "/connection/open",
-    "close_connection": "/connection/close",
-    "start_recording": "/recording/start",
-    "stop_recording": "/recording/stop",
-    "get_current_scene": "/current-scene",
-    "set_current_scene": "/current-scene/set",
-    "get_scenes": "/scenes",
-    "move_up": "http://admin:zenika@192.168.1.58/cgi-bin/hi3510/param.cgi?cmd=ptzctrl&-step=0&-act=up&-speed=45",
-    "move_down": "http://admin:zenika@192.168.1.58/cgi-bin/hi3510/param.cgi?cmd=ptzctrl&-step=0&-act=down&-speed=45",
-    "move_right": "http://admin:zenika@192.168.1.58/cgi-bin/hi3510/param.cgi?cmd=ptzctrl&-step=0&-act=right&-speed=45",
-    "move_left": "http://admin:zenika@192.168.1.58/cgi-bin/hi3510/param.cgi?cmd=ptzctrl&-step=0&-act=left&-speed=45",
-    "stop_moving": "http://admin:zenika@192.168.1.58/cgi-bin/hi3510/param.cgi?cmd=ptzctrl&-step=0&-act=stop&-speed=45"
+    "open_connection": "/obs/connection/open",
+    "close_connection": "/obs/connection/close",
+    "start_recording": "/obs/recording/start",
+    "stop_recording": "/obs/recording/stop",
+    "get_current_scene": "/obs/current-scene",
+    "set_current_scene": "/obs/current-scene/set",
+    "get_scenes": "/obs/scenes",
+    "move_up": "/camera/move-up",
+    "move_down": "/camera/move-down",
+    "move_right": "/camera/move-right",
+    "move_left": "/camera/move-left",
+    "stop_moving": "/camera/stop"
   }
 }

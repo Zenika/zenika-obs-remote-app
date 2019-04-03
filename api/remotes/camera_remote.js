@@ -8,30 +8,61 @@ const urlFirstPart = config.camera.protocol
 
 const remote = {
     move_cam_up: function () {
-        axios.get(urlFirstPart.concat('?cmd=ptzctrl&-step=0&-act=up&-speed=45'));
-        // await delay(1);
-        this.stop_cam();
+        let result = axios.get(urlFirstPart.concat('?cmd=ptzctrl&-step=0&-act=up&-speed=20'))
+            .then(res => {
+                console.log(res.data);
+                return res.data;
+            })
+            .catch(err => {
+                console.log(err);
+                throw err;
+            });
+        return result;
     },
     move_cam_down: function () {
-        axios.get(urlFirstPart.concat('?cmd=ptzctrl&-step=0&-act=down&-speed=45'));
-        // await delay(1);
-        this.stop_cam();
+        let result = axios.get(urlFirstPart.concat('?cmd=ptzctrl&-step=0&-act=down&-speed=20'))
+            .then(res => {
+                return res.data;
+            })
+            .catch(err => {
+                console.log(err);
+                throw err;
+            });
+        return result;
     },
     move_cam_right: function () {
-        axios.get(urlFirstPart.concat('?cmd=ptzctrl&-step=0&-act=right&-speed=45'));
-        // await delay(1);
-        this.stop_cam();
+        let result = axios.get(urlFirstPart.concat('?cmd=ptzctrl&-step=0&-act=right&-speed=20'))
+            .then(res => {
+                return res.data;
+            })
+            .catch(err => {
+                console.log(err);
+                throw err;
+            });
+        return result;
     },
     move_cam_left: function () {
-        axios.get(urlFirstPart.concat('?cmd=ptzctrl&-step=0&-act=left&-speed=45'));
-        // await delay(1);
-        this.stop_cam();
+        let result = axios.get(urlFirstPart.concat('?cmd=ptzctrl&-step=0&-act=left&-speed=20'))
+            .then(res => {
+                return res.data;
+            })
+            .catch(err => {
+                console.log(err);
+                throw err;
+            });
+        return result;
     },
-    stop_cam: function () {
-        axios.get(urlFirstPart.concat('?cmd=ptzctrl&-step=0&-act=stop&-speed=45'));
-    },
-    delay(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
+    stop_cam: async function () {
+        // await this.delay();
+        let result = axios.get(urlFirstPart.concat('?cmd=ptzctrl&-step=0&-act=stop&-speed=20'))
+            .then(res => {
+                return res.data;
+            })
+            .catch(err => {
+                console.log(err);
+                throw err;
+            });
+        return result;
     }
 };
 
