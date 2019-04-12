@@ -9,7 +9,7 @@ import static org.hamcrest.CoreMatchers.is;
 @QuarkusTest
 public class ObsRemoteFailureTest {
 
-    @Test
+   /* @Test
     public void testOpenConnectionEndpointFailure() {
         given()
                 .when().get("/obs/connection/open")
@@ -43,5 +43,6 @@ public class ObsRemoteFailureTest {
                 .then()
                 .statusCode(500)
                 .body(is("Couldn't close connection"));
-    }
+    }*/
+
 }

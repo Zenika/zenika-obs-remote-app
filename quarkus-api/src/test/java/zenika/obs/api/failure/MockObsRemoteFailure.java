@@ -7,8 +7,8 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Alternative;
 
 @Alternative
-@Priority(10)
-@ApplicationScoped
+// @Priority(2)
+// @ApplicationScoped
 public class MockObsRemoteFailure extends ObsRemote {
     Boolean connected = false;
     Boolean recording = false;
