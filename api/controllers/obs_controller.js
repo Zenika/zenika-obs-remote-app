@@ -20,7 +20,7 @@ exports.remote_get_open_connection = (req, res, next) => {
 };
 
 exports.remote_get_close_connection = (req, res, next) => {
-    if(remote.closeConnection(obs)){
+    if(obs_controller.closeConnection(obs)){
         res.status(200).json({
             message: "Connection to obs gone down!"
         });
