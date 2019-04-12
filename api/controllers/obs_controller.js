@@ -2,10 +2,10 @@ const OBSWebSocket = require('obs-websocket-js');
 
 //Setting obs-websocket up
 const obs = new OBSWebSocket();
-const remote = require('../obs/obs_remote');
+const obs_controller = require('../remotes/obs_remote');
 
 exports.remote_get_open_connection = (req, res, next) => {
-    remote.openConnection(obs)
+    obs_controller.openConnection(obs)
         .then(result => {
             res.status(200).json({
                 message: "Connection to obs succeeded!",
@@ -20,7 +20,7 @@ exports.remote_get_open_connection = (req, res, next) => {
 };
 
 exports.remote_get_close_connection = (req, res, next) => {
-    if(remote.closeConnection(obs)){
+    if(obs_controller.closeConnection(obs)){
         res.status(200).json({
             message: "Connection to obs gone down!"
         });
@@ -32,7 +32,7 @@ exports.remote_get_close_connection = (req, res, next) => {
 }
 
 exports.remote_post_start_recording = (req, res, next) => {
-    remote.startRecording(obs)
+    obs_controller.startRecording(obs)
         .then(result => {
             res.status(200).json({
                 message: "You're now recording! \n " +
@@ -49,12 +49,12 @@ exports.remote_post_start_recording = (req, res, next) => {
 };
 
 exports.remote_post_stop_recording = (req, res, next) => {
-    remote.stopRecording(obs)
+    obs_controller.stopRecording(obs)
         .then(result => {
             res.status(200).json({
                 message: "Recording has been stopped! " +
-                    "It started at " + remote.infos.startedAt +
-                    "Record duration : " + remote.infos.recorded.toString(),
+                    "It started at " + obs_controller.infos.startedAt +
+                    "Record duration : " + obs_controller.infos.recorded.toString(),
                 data: result
             });
         })
@@ -67,7 +67,7 @@ exports.remote_post_stop_recording = (req, res, next) => {
 };
 
 exports.remote_get_scenes = (req, res, next) => {
-    remote.getScenes(obs)
+    obs_controller.getScenes(obs)
         .then(result => {
             res.status(200).json({
                 data: result
@@ -82,7 +82,7 @@ exports.remote_get_scenes = (req, res, next) => {
 };
 
 exports.remote_get_current_scene = (req, res, next) => {
-    remote.getCurrentScene(obs)
+    obs_controller.getCurrentScene(obs)
         .then(result => {
             res.status(200).json({
                 data: result
@@ -98,7 +98,7 @@ exports.remote_get_current_scene = (req, res, next) => {
 
 exports.remote_post_set_current_scene = (req, res, next) => {
     let sceneName = req.query['scene-name'];
-    remote.setCurrentScene(obs, sceneName)
+    obs_controller.setCurrentScene(obs, sceneName)
         .then(result => {
             res.status(200).json({
                 status: 'ok'
