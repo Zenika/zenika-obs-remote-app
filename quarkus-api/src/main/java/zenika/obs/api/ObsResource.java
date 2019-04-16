@@ -14,11 +14,7 @@ public class ObsResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/connection/open")
     public Response openConnection() {
-        try {
-            remote.openConnection();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        remote.openConnection();
 
         if(remote.isConnected()) {
             return Response

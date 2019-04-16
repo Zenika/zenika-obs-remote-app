@@ -15,7 +15,6 @@ public class CameraRemote {
     @ConfigProperty(name = "camera.host") public String host;
     @ConfigProperty(name = "camera.default.speed") public String speed;
 
-    private CloseableHttpClient httpClient;
     private String baseUrl;
 
     private String moveUp = "?cmd=ptzctrl&-step=0&-act=up&-speed=";
@@ -70,22 +69,20 @@ public class CameraRemote {
         System.out.println("   => speed = " + speed);
 
         System.out.println("Sending following request :");
-        this.httpClient = HttpClients.createDefault();
-        CloseableHttpResponse httpResponse;
+        CloseableHttpClient httpClient = HttpClients.createDefault();
         Boolean moved = false;
 
         try {
             System.out.println("   => GET " + baseUrl.concat(direction).concat(speed));
-            httpResponse = Utils.sendGetRequestToNodeAPI(
-                    httpClient,
-                    baseUrl.concat(direction).concat(speed),
-                    null);
+            CloseableHttpResponse httpResponse =
+                    Utils.sendGetRequestToNodeAPI(httpClient, baseUrl.concat(direction).concat(speed), null);
             if (httpResponse.getStatusLine().getStatusCode() == 200) {
                 moved = true;
             } else {
                 moved = false;
             }
-            this.httpClient.close();
+            httpResponse.close();
+            httpClient.close();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
