@@ -11,6 +11,8 @@ import org.json.JSONObject;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.*;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 @ApplicationScoped
 public class ObsRemote {

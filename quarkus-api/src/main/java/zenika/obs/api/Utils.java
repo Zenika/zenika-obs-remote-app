@@ -9,6 +9,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Consumer;
 
 public class Utils {
 
@@ -21,9 +23,10 @@ public class Utils {
     public static String buildCustomUrl(String base, List<NameValuePair> params) {
         String url = base.concat("?")
                 .concat(params.get(0).getName().concat("=").concat(params.get(0).getValue()));
-        for(int i = 1; i < params.size(); i++) {
-            url.concat("&").concat(params.get(i).getName().concat("=").concat(params.get(i).getValue()));
-        }
+
+        Consumer<NameValuePair> construct = (param) ->
+            url.concat("&").concat(param.getName().concat("=").concat(param.getValue()));
+        params.forEach(construct);
 
         return url;
     }

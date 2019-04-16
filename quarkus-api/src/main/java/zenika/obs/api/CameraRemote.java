@@ -71,7 +71,7 @@ public class CameraRemote {
 
         System.out.println("Sending following request :");
         this.httpClient = HttpClients.createDefault();
-        CloseableHttpResponse httpResponse = null;
+        CloseableHttpResponse httpResponse;
         Boolean moved = false;
 
         try {

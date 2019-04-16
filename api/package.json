@@ -16,11 +16,13 @@
     "morgan": "~1.9.0",
     "obs-websocket-js": "^1.2.0",
     "obs-websocket-js-types": "^4.4.0",
-    "pug": "2.0.0-beta11"
+    "pug": "^2.0.3"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
+    "nock": "^10.0.6",
+    "request": "^2.83.0",
     "sinon": "^7.2.2"
   }
 }
