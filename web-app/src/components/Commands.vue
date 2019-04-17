@@ -1,12 +1,13 @@
 <template>
   <v-card-actions>
-    <v-btn flat color="red" v-on:click="startRecording">play</v-btn>
+    <v-btn flat color="red" v-on:click="startRecording">rec</v-btn>
     <v-btn flat color="grey" v-on:click="stopRecording">stop</v-btn>
-    <v-btn flat color="grey" v-on:click="moveCamera('up')">up</v-btn>
-    <v-btn flat color="grey" v-on:click="moveCamera('down')">down</v-btn>
-    <v-btn flat color="orange" v-on:click="moveCamera('stop')">stop</v-btn>
-    <v-btn flat color="grey" v-on:click="moveCamera('right')">right</v-btn>
-    <v-btn flat color="grey" v-on:click="moveCamera('left')">left</v-btn>
+    <v-btn v-for="scene of scenes"
+           color="grey"
+           :key="scene.name"
+           v-on:click="setCurrentScene(scene.name)">
+      {{scene.name}}
+    </v-btn>
   </v-card-actions>
 </template>
 
@@ -24,6 +25,7 @@ const apiURL = process.env.VUE_APP_API_URL;
   },
   data() {
     return {
+      scenes: []
     };
   },
   methods: {
@@ -37,30 +39,40 @@ const apiURL = process.env.VUE_APP_API_URL;
         .then(alert('Recording stopped'))
         .catch((error: any) => alert(error));
     },
-    moveCamera: async function (direction: string) {
-      switch (direction) {
-        case 'up': {
-          axios.get(apiURL.concat(api.commands.move_up));
-          //  .then(setTimeout(axios.get(apiURL.concat(api.commands.stop_moving)), 2000));
-          break;
-        }
-        case 'down': {
-          axios.get(apiURL.concat(api.commands.move_down));
-          break;
-        }
-        case 'right': {
-          axios.get(apiURL.concat(api.commands.move_right));
-          break;
-        }
-        case 'left': {
-          axios.get(apiURL.concat(api.commands.move_left));
-          break;
-        }
-        case 'stop': {
-          axios.get(apiURL.concat(api.commands.stop_moving));
-          break;
+    getCurrentScene: function() {
+      let response = axios.get(apiURL.concat(api.commands.get_current_scene));
+      return response.data;
+    },
+    setCurrentScene: function(sceneName) {
+      axios.post(
+        apiURL
+          .concat(api.commands.set_current_scene)
+          .concat('?scene-name=' + sceneName))
+        .catch(err => {
+          alert('Changement de scène impossible');
+          console.log(err);
+        });
+    },
+    findObjectByKey: function(array, key, value) {
+      for (var i = 0; i < array.length; i++) {
+        if (array[i][key] === value) {
+          return array[i];
         }
       }
+      return null;
+    }
+  },
+  async mounted() {
+    try {
+      await axios.get(apiURL.concat(api.commands.open_connection));
+      let res2 = await axios.get(apiURL.concat(api.commands.get_scenes));
+      let sceneList = JSON.parse(JSON.stringify(res2.data));
+      sceneList.data.forEach(scene => {
+        console.log(scene);
+        this.$data.scenes.push(scene);
+      });
+    } catch (e) {
+      throw e;
     }
   }
 })

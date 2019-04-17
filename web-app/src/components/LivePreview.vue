@@ -6,12 +6,18 @@
       </video>
     </div>
     <div class="column is-2" id="board-remote-scenes">
-      <!--b-table :data="scenes"
-               :columns="columns"
-               :selected.sync="selected"
-               @click="setCurrentScene">
-      </b-table-->
-      <v-data-table :headers='headers'
+      <div class="columns">
+        <div class="column is-4 is-offset-4" v-on:click="moveCamera('up')">UP</div>
+      </div>
+      <div class="columns">
+        <div class="column is-4" v-on:click="moveCamera('left')">LEFT</div>
+        <div class="column is-4" v-on:click="moveCamera('stop')">STOP</div>
+        <div class="column is-4" v-on:click="moveCamera('right')">RIGHT</div>
+      </div>
+      <div class="columns">
+        <div class="column is-4 is-offset-4" v-on:click="moveCamera('down')">DOWN</div>
+      </div>
+      <!--v-data-table :headers='headers'
                     :items="scenes"
                     class="elevation-1">
         <template slot="items"
@@ -20,7 +26,7 @@
             {{ props.item.name }}
           </td>
         </template>
-      </v-data-table>
+      </v-data-table-->
     </div>
   </div>
 </template>
@@ -32,11 +38,8 @@ import { Scene } from '@/entities/scene';
 import api from '../../api.json';
 
 const axios = require('axios');
-const fetch = require('node-fetch');
-// const { URLSearchParams } = require('url');
-
 const apiURL = process.env.VUE_APP_API_URL;
-console.log(apiURL);
+
 export default {
   name: 'LivePreview',
   components: {
@@ -47,7 +50,7 @@ export default {
       headers: [
         { text: 'Scènes', value: 'name' }
       ],
-      scenes: [],
+      // scenes: [],
       columns: [
         {
           field: 'name',
@@ -57,56 +60,34 @@ export default {
     };
   },
   methods: {
-    getCurrentScene: function() {
-      let response = axios.get(apiURL.concat(api.commands.get_current_scene));
-      return response.data;
-    },
-    setCurrentScene: function(sceneName) {
-      /* const params = new URLSearchParams();
-      params.append('scene-name', sceneName); */
-      axios.post(
-        apiURL
-          .concat(api.commands.set_current_scene)
-          .concat('?scene-name=' + sceneName))
-        .catch(err => {
-          alert('Changement de scène impossible');
-          console.log(err);
-        });
-      /* fetch(apiURL.concat(api.commands.set_current_scene), {
-        method: 'post',
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: params
-      })
-        .then(res => console.log(res))
-        .catch(err => {
-          alert('Changement de scène impossible');
-          console.log(err);
-        }); */
-    },
-    findObjectByKey: function(array, key, value) {
-      for (var i = 0; i < array.length; i++) {
-        if (array[i][key] === value) {
-          return array[i];
+    moveCamera: async function (direction) {
+      switch (direction) {
+        case 'up': {
+          axios.get(apiURL.concat(api.commands.move_up));
+          //  .then(setTimeout(axios.get(apiURL.concat(api.commands.stop_moving)), 2000));
+          break;
+        }
+        case 'down': {
+          axios.get(apiURL.concat(api.commands.move_down));
+          break;
+        }
+        case 'right': {
+          axios.get(apiURL.concat(api.commands.move_right));
+          break;
+        }
+        case 'left': {
+          axios.get(apiURL.concat(api.commands.move_left));
+          break;
+        }
+        case 'stop': {
+          axios.get(apiURL.concat(api.commands.stop_moving));
+          break;
         }
       }
-      return null;
     }
   },
   async mounted() {
-    try {
-      await axios.get(apiURL.concat(api.commands.open_connection));
-      let res2 = await axios.get(apiURL.concat(api.commands.get_scenes));
-      let sceneList = JSON.parse(JSON.stringify(res2.data));
-      var player = videojs('player-preview');
-      sceneList.data.forEach(scene => {
-        // console.log(scene);
-        this.$data.scenes.push(scene);
-      });
-    } catch (e) {
-      throw e;
-    }
+    var player = videojs('player-preview');
   }
 };
 </script>

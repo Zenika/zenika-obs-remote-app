@@ -1,2 +1,5 @@
-/home/zenika/projects/obs/zenika-obs-remote-app/quarkus-api/src/test/java/zenika/obs/api/ObsResourceTest.java
+/home/zenika/projects/obs/zenika-obs-remote-app/quarkus-api/src/test/java/zenika/obs/api/success/MockObsRemote.java
+/home/zenika/projects/obs/zenika-obs-remote-app/quarkus-api/src/test/java/zenika/obs/api/failure/ObsRemoteFailureTest.java
+/home/zenika/projects/obs/zenika-obs-remote-app/quarkus-api/src/test/java/zenika/obs/api/success/ObsResourceTest.java
+/home/zenika/projects/obs/zenika-obs-remote-app/quarkus-api/src/test/java/zenika/obs/api/failure/MockObsRemoteFailure.java
 /home/zenika/projects/obs/zenika-obs-remote-app/quarkus-api/src/test/java/zenika/obs/api/NativeObsResourceIT.java

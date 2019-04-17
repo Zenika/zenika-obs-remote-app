@@ -38,9 +38,20 @@ You can now start streaming
 ### API config
 
 This api uses some environment variables, so make sure to set them before starting.  
-Avalaible modes are : **dev**, **test** or **prod**
+Avalaible modes are : **dev**, **test** or **prod***
 
-You can configure them with files located at **config/api_config/.env.api.***
+You can configure them with files located at **config/api_config/.env.api.***  
+Each of these modes is related to other environment variables that you can set : 
+*Please replace <mode> with **DEV**, **TEST** or **PROD**
+* `process.env.<mode>_APP_HOST` will set the api's hostname (default is *localhost*)
+* `process.env.<mode>_APP_PORT` will set the api's port (default is *3000*)
+* `process.env.<mode>_OBS_HOST` will set OBS's hostname (default is *localhost*)
+* `process.env.<mode>_OBS_PORT` will set OBS's port (default is *4444*)
+* `process.env.<mode>_OBS_PWD` will set OBS's password 
+* `process.env.<mode>_CAMERA_USER` will set the camera's username (default is *admin*)
+* `process.env.<mode>_CAMERA_PWD` will set the camera's username (default is *zenika*)
+* `process.env.<mode>_CAMERA_PROTOCOL` will set the camera's protocol (default is *http*)
+* `process.env.<mode>_CAMERA_HOST` will set the camera's hostname 
 
 Create the api's docker image:
 ```

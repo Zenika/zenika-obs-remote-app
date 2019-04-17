@@ -6,11 +6,6 @@ const dev = {
         host: process.env.DEV_APP_HOST || 'localhost',
         port: parseInt(process.env.DEV_APP_PORT) || 3000
     },
-    /*db: {
-        host: process.env.DEV_DB_HOST || 'localhost',
-        port: parseInt(process.env.DEV_DB_PORT) || 27017,
-        name: process.env.DEV_DB_NAME || 'db'
-    },*/
     obs: {
         host: process.env.DEV_OBS_HOST || 'localhost',
         port: parseInt(process.env.DEV_OBS_PORT) || 4444,
@@ -19,7 +14,7 @@ const dev = {
     camera: {
         user: process.env.DEV_CAMERA_USER || 'admin',
         pwd:  process.env.DEV_CAMERA_PWD || 'zenika',
-        protocol: process.env.DEV_CAMERA_PROTOCOL || 'http://',
+        protocol: process.env.DEV_CAMERA_PROTOCOL || 'htttp',
         host: process.env.DEV_CAMERA_HOST || '192.168.1.58/cgi-bin/hi3510/param.cgi'
     }
 };
@@ -36,7 +31,7 @@ const test = {
     camera: {
         user: process.env.TEST_CAMERA_USER || 'admin',
         pwd:  process.env.TEST_CAMERA_PWD || 'zenika',
-        protocol: process.env.DEV_CAMERA_PROTOCOL || 'http://',
+        protocol: process.env.TEST_CAMERA_PROTOCOL || 'htttp',
         host: process.env.TEST_CAMERA_HOST || '192.168.1.58/cgi-bin/hi3510/param.cgi'
     }
 };
@@ -53,7 +48,7 @@ const prod = {
     camera: {
         user: process.env.PROD_CAMERA_USER || 'admin',
         pwd:  process.env.PROD_CAMERA_PWD || 'zenika',
-        protocol: process.env.DEV_CAMERA_PROTOCOL || 'http://',
+        protocol: process.env.PROD_CAMERA_PROTOCOL || 'htttp',
         host: process.env.PROD_CAMERA_HOST || '192.168.1.58/cgi-bin/hi3510/param.cgi'
     }
 };

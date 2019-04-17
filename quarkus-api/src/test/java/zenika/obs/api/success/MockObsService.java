@@ -1,6 +1,6 @@
 package zenika.obs.api.success;
 
-import zenika.obs.api.ObsRemote;
+import zenika.obs.api.ObsService;
 
 import javax.annotation.Priority;
 import javax.enterprise.context.ApplicationScoped;
@@ -11,7 +11,7 @@ import java.util.Set;
 @Alternative
 @Priority(1)
 @ApplicationScoped
-public class MockObsRemote extends ObsRemote {
+public class MockObsService extends ObsService {
 
     @Override
     public Set<String> getScenes() {

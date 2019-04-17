@@ -1,3 +1,6 @@
 zenika/obs/api/CameraResource.class
 zenika/obs/api/ObsResource.class
+zenika/obs/api/CameraRemote.class
+zenika/obs/api/ObsService.class
+zenika/obs/api/ConnectionException.class
 zenika/obs/api/ObsRemote.class

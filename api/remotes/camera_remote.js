@@ -1,7 +1,7 @@
 const config = require('../config');
 const axios = require('axios');
 
-const urlFirstPart = config.camera.protocol
+const urlFirstPart = config.camera.protocol.concat('://')
     .concat(config.camera.user).concat(':')
     .concat(config.camera.pwd).concat('@')
     .concat(config.camera.host);

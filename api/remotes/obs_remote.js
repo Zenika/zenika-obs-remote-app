@@ -56,14 +56,13 @@ const remote = {
             return this.infos;
         })
         .catch(err => {
-            console.log(err);
+            // console.log(err);
             throw err;
         });
 
         // Avoiding uncaught exceptions.
         obs.on('error', err => {
             console.error('socket error:', err);
-            //throw err;
         });
 
         return result;

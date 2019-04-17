@@ -1,5 +1,7 @@
 package zenika.obs.api;
 
+import org.json.JSONObject;
+
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -8,19 +10,16 @@ import javax.ws.rs.core.Response;
 @Path("/obs")
 public class ObsResource {
 
-    @Inject ObsRemote remote;
+    @Inject
+    ObsService service;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/connection/open")
     public Response openConnection() {
-        try {
-            remote.openConnection();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        service.openConnection();
 
-        if(remote.isConnected()) {
+        if(service.isConnected()) {
             return Response
                     .status(Response.Status.OK)
                     .entity("Connection succeed")
@@ -33,17 +32,25 @@ public class ObsResource {
                 .build();
     }
 
+    /*@GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/connection/open")
+    public String openConnection() {
+        service.openConnection();
+        return new JSONObject(service.getRemote().isConnected()).toString();//service.getRemote().toString();
+    }*/
+
     @POST
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/recording/start")
     public Response startRecording() {
         try {
-            remote.startRecording();
+            service.startRecording();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if(remote.isRecording()) {
+        if(service.isRecording()) {
             return Response
                     .status(Response.Status.OK)
                     .entity("OBS is recording")
@@ -61,12 +68,12 @@ public class ObsResource {
     @Path("/recording/stop")
     public Response stopRecording() {
         try {
-            remote.stopRecording();
+            service.stopRecording();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if(!remote.isRecording()) {
+        if(!service.isRecording()) {
             return Response
                     .status(Response.Status.OK)
                     .entity("OBS stopped recording")
@@ -84,12 +91,12 @@ public class ObsResource {
     @Path("/connection/close")
     public Response closeConnection() {
         try {
-            remote.closeConnection();
+            service.closeConnection();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if(!remote.isConnected()) {
+        if(!service.isConnected()) {
             return Response
                     .status(Response.Status.OK)
                     .entity("Connection closed")
@@ -105,10 +112,10 @@ public class ObsResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/scenes")
-    public Response getScenes() throws Exception{
+    public Response getScenes() {
         return Response
                 .status(Response.Status.OK)
-                .entity(remote.getScenes())
+                .entity(service.getScenes())
                 .build();
     }
 
@@ -118,7 +125,7 @@ public class ObsResource {
     public Response getCurrentScene() throws Exception {
         return Response
                 .status(Response.Status.OK)
-                .entity(remote.getCurrentScene())
+                .entity(service.getCurrentScene())
                 .build();
     }
 
@@ -128,7 +135,7 @@ public class ObsResource {
     public Response setCurrentScenne(@PathParam("scene") String scene) throws Exception {
         return Response
                 .status(Response.Status.OK)
-                .entity(remote.setCurrentScene(scene))
+                .entity(service.setCurrentScene(scene))
                 .build();
     }
 }
