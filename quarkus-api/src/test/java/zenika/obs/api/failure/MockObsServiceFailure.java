@@ -1,15 +1,13 @@
 package zenika.obs.api.failure;
 
-import zenika.obs.api.ObsRemote;
+import zenika.obs.api.ObsService;
 
-import javax.annotation.Priority;
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Alternative;
 
 @Alternative
 // @Priority(2)
 // @ApplicationScoped
-public class MockObsRemoteFailure extends ObsRemote {
+public class MockObsServiceFailure extends ObsService {
     Boolean connected = false;
     Boolean recording = false;
 

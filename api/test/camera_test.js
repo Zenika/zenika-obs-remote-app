@@ -4,7 +4,7 @@ const nock = require('nock');
 
 const remote = require('../remotes/camera_remote');
 const config = require('../config');
-const base = config.camera.protocol
+const base = config.camera.protocol.concat('://')
     .concat(config.camera.user).concat(':')
     .concat(config.camera.pwd).concat('@')
     .concat(config.camera.host);

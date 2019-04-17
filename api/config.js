@@ -14,7 +14,7 @@ const dev = {
     camera: {
         user: process.env.DEV_CAMERA_USER || 'admin',
         pwd:  process.env.DEV_CAMERA_PWD || 'zenika',
-        protocol: process.env.DEV_CAMERA_PROTOCOL || 'http://',
+        protocol: process.env.DEV_CAMERA_PROTOCOL || 'htttp',
         host: process.env.DEV_CAMERA_HOST || '192.168.1.58/cgi-bin/hi3510/param.cgi'
     }
 };
@@ -31,7 +31,7 @@ const test = {
     camera: {
         user: process.env.TEST_CAMERA_USER || 'admin',
         pwd:  process.env.TEST_CAMERA_PWD || 'zenika',
-        protocol: process.env.DEV_CAMERA_PROTOCOL || 'http://',
+        protocol: process.env.TEST_CAMERA_PROTOCOL || 'htttp',
         host: process.env.TEST_CAMERA_HOST || '192.168.1.58/cgi-bin/hi3510/param.cgi'
     }
 };
@@ -48,7 +48,7 @@ const prod = {
     camera: {
         user: process.env.PROD_CAMERA_USER || 'admin',
         pwd:  process.env.PROD_CAMERA_PWD || 'zenika',
-        protocol: process.env.DEV_CAMERA_PROTOCOL || 'http://',
+        protocol: process.env.PROD_CAMERA_PROTOCOL || 'htttp',
         host: process.env.PROD_CAMERA_HOST || '192.168.1.58/cgi-bin/hi3510/param.cgi'
     }
 };
