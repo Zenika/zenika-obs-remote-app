@@ -1,7 +1,7 @@
-package zenika.obs.api;
+package zenika.api;
 
 import io.quarkus.test.junit.SubstrateTest;
-import zenika.obs.api.success.ObsResourceTest;
+import zenika.api.success.ObsResourceTest;
 
 @SubstrateTest
 public class NativeObsResourceIT extends ObsResourceTest {

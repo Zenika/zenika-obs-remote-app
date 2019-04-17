@@ -1,6 +1,6 @@
-package zenika.obs.api.success;
+package zenika.api.success;
 
-import zenika.obs.api.ObsService;
+import zenika.api.obs.ObsService;
 
 import javax.annotation.Priority;
 import javax.enterprise.context.ApplicationScoped;

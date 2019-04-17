@@ -1,4 +1,4 @@
-package zenika.obs.api;
+package zenika.api;
 
 public class ConnectionException extends Exception {
     public ConnectionException(String message) {

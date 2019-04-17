@@ -1,6 +1,6 @@
-package zenika.obs.api.failure;
+package zenika.api.failure;
 
-import zenika.obs.api.ObsService;
+import zenika.api.obs.ObsService;
 
 import javax.enterprise.inject.Alternative;
 

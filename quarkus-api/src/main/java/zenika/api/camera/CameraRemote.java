@@ -1,9 +1,10 @@
-package zenika.obs.api;
+package zenika.api.camera;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import zenika.api.Utils;
 
 import javax.enterprise.context.ApplicationScoped;
 
@@ -61,23 +62,18 @@ public class CameraRemote {
                 .append(host)
                 .toString();
 
-        System.out.println("Creating camera remote with following values");
-        System.out.println("   => protocol = " + protocol);
-        System.out.println("   => user = " + user);
-        System.out.println("   => password = " + password);
-        System.out.println("   => host = " + host);
-        System.out.println("   => speed = " + speed);
-
-        System.out.println("Sending following request :");
         CloseableHttpClient httpClient = HttpClients.createDefault();
         Boolean moved = false;
 
         try {
-            System.out.println("   => GET " + baseUrl.concat(direction).concat(speed));
             CloseableHttpResponse httpResponse =
                     Utils.sendGetRequestToNodeAPI(httpClient, baseUrl.concat(direction).concat(speed), null);
             if (httpResponse.getStatusLine().getStatusCode() == 200) {
                 moved = true;
+                synchronized (moved) {
+                    moved.wait(1000);
+                    Utils.sendGetRequestToNodeAPI(httpClient, baseUrl.concat(stop).concat(speed),null);
+                }
             } else {
                 moved = false;
             }

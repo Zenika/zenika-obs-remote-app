@@ -1,4 +1,4 @@
-package zenika.obs.api.success;
+package zenika.api.success;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;

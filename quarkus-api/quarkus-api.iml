@@ -11,35 +11,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-resteasy-jsonb:0.13.0" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-resteasy:0.13.0" level="project" />
-    <orderEntry type="library" name="Maven: io.quarkus:quarkus-core:0.13.0" level="project" />
-    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
-    <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.3.2" level="project" />
-    <orderEntry type="library" name="Maven: io.smallrye:smallrye-config:1.3.5" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.microprofile.config:microprofile-config-api:1.3" level="project" />
-    <orderEntry type="library" name="Maven: org.osgi:org.osgi.annotation.versioning:1.0.0" level="project" />
-    <orderEntry type="library" name="Maven: javax.enterprise:cdi-api:2.0.SP1" level="project" />
-    <orderEntry type="library" name="Maven: javax.el:javax.el-api:3.0.0" level="project" />
-    <orderEntry type="library" name="Maven: javax.interceptor:javax.interceptor-api:1.2" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss.logmanager:jboss-logmanager-embedded:1.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging-annotations:2.1.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss.threads:jboss-threads:3.0.0.Alpha4" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss.slf4j:slf4j-jboss-logging:1.1.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.graalvm.sdk:graal-sdk:1.0.0-rc14" level="project" />
-    <orderEntry type="library" name="Maven: org.wildfly.common:wildfly-common:1.5.0.Final-format-001" level="project" />
-    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-ssl:2.0.0.Alpha1" level="project" />
-    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-auth-server:2.0.0.Alpha1" level="project" />
-    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-permission:2.0.0.Alpha1" level="project" />
-    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-base:2.0.0.Alpha1" level="project" />
-    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-credential:2.0.0.Alpha1" level="project" />
-    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-auth:2.0.0.Alpha1" level="project" />
-    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-util:2.0.0.Alpha1" level="project" />
-    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-x500:2.0.0.Alpha1" level="project" />
-    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-x500-cert:2.0.0.Alpha1" level="project" />
-    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-asn1:2.0.0.Alpha1" level="project" />
-    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-x500-cert-util:2.0.0.Alpha1" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-undertow:0.13.0" level="project" />
     <orderEntry type="library" name="Maven: io.undertow:undertow-servlet:2.0.19.Final" level="project" />
     <orderEntry type="library" name="Maven: io.undertow:undertow-core:2.0.19.Final" level="project" />
@@ -59,7 +32,14 @@
     <orderEntry type="library" name="Maven: javax.validation:validation-api:2.0.1.Final" level="project" />
     <orderEntry type="library" name="Maven: com.sun.activation:jakarta.activation:1.2.1" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-jaxb:0.13.0" level="project" />
-    <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.3.1" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-jsonb:0.13.0" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse:yasson:1.0.3" level="project" />
+    <orderEntry type="library" name="Maven: javax.json.bind:javax.json.bind-api:1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-jsonp:0.13.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-json-binding-provider:4.0.0.CR2" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish:javax.json:1.1.4" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-json-p-provider:4.0.0.CR2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-junit5:0.13.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-bootstrap-core:0.13.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.maven:maven-settings-builder:3.5.4" level="project" />
@@ -100,8 +80,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.ow2.asm:asm:6.2.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-builder:0.13.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-jsonp-deployment:0.13.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: io.quarkus:quarkus-jsonp:0.13.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.glassfish:javax.json:1.1.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jboss:jandex:2.1.1.Final" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-api:5.4.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apiguardian:apiguardian-api:1.0.0" level="project" />
@@ -110,6 +88,33 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-params:5.4.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.4.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.4.1" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-core:0.13.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.3.2" level="project" />
+    <orderEntry type="library" name="Maven: io.smallrye:smallrye-config:1.3.5" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.microprofile.config:microprofile-config-api:1.3" level="project" />
+    <orderEntry type="library" name="Maven: org.osgi:org.osgi.annotation.versioning:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.enterprise:cdi-api:2.0.SP1" level="project" />
+    <orderEntry type="library" name="Maven: javax.el:javax.el-api:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.interceptor:javax.interceptor-api:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.logmanager:jboss-logmanager-embedded:1.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging-annotations:2.1.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.threads:jboss-threads:3.0.0.Alpha4" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.slf4j:slf4j-jboss-logging:1.1.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.graalvm.sdk:graal-sdk:1.0.0-rc14" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.common:wildfly-common:1.5.0.Final-format-001" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-ssl:2.0.0.Alpha1" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-auth-server:2.0.0.Alpha1" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-permission:2.0.0.Alpha1" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-base:2.0.0.Alpha1" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-credential:2.0.0.Alpha1" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-auth:2.0.0.Alpha1" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-util:2.0.0.Alpha1" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-x500:2.0.0.Alpha1" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-x500-cert:2.0.0.Alpha1" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-asn1:2.0.0.Alpha1" level="project" />
+    <orderEntry type="library" name="Maven: org.wildfly.security:wildfly-elytron-x500-cert-util:2.0.0.Alpha1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.rest-assured:rest-assured:3.3.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.codehaus.groovy:groovy:2.4.15" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.codehaus.groovy:groovy-xml:2.4.15" level="project" />
@@ -126,6 +131,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: io.rest-assured:rest-assured-common:3.3.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.rest-assured:xml-path:3.3.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.commons:commons-lang3:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.3.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.sun.xml.bind:jaxb-osgi:2.2.10" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.sling:org.apache.sling.javax.activation:0.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20160810" level="project" />

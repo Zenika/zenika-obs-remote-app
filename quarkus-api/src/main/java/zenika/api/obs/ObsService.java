@@ -1,4 +1,4 @@
-package zenika.obs.api;
+package zenika.api.obs;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -8,6 +8,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import zenika.api.Utils;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.*;
@@ -103,7 +104,7 @@ public class ObsService {
         }
     }
 
-    public Set<String> getScenes() {
+    public Set<Scene> getScenes() {
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
         try {
@@ -114,7 +115,8 @@ public class ObsService {
                         Utils.readResponseFromNodeAPI(httpResponse));
                 JSONArray jsonArray = json.getJSONArray("data");
                 for (int i = 0; i < jsonArray.length(); i ++) {
-                    remote.getScenes().add(jsonArray.getJSONObject(i).getString("name"));
+                    Scene scene = new Scene(jsonArray.getJSONObject(i).getString("name"));
+                    remote.getScenes().add(scene);
                 }
             }
             httpResponse.close();
@@ -126,7 +128,7 @@ public class ObsService {
         return remote.getScenes();
     }
 
-    public String getCurrentScene() {
+    public Scene getCurrentScene() {
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
         try {
@@ -135,7 +137,7 @@ public class ObsService {
             if(httpResponse.getStatusLine().getStatusCode() == 200) {
                 JSONObject json = new JSONObject(
                         Utils.readResponseFromNodeAPI(httpResponse));
-                remote.setCurrentScene(json.getString("data"));
+                remote.setCurrentScene(new Scene(json.getString("data")));
             }
             httpResponse.close();
             httpClient.close();
@@ -146,10 +148,10 @@ public class ObsService {
         return remote.getCurrentScene();
     }
 
-    public String setCurrentScene(String scene) {
+    public Scene setCurrentScene(Scene scene) {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         List<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair("scene-name", scene));
+        params.add(new BasicNameValuePair("scene-name", scene.getName()));
 
         try {
             CloseableHttpResponse httpResponse =

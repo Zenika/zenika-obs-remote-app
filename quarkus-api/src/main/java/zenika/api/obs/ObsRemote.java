@@ -1,19 +1,18 @@
-package zenika.obs.api;
+package zenika.api.obs;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ObsRemote implements Serializable {
+public class ObsRemote {
     private Boolean connected;
     private Boolean recording;
-    private String currentScene;
-    private Set<String> scenes;
+    private Scene currentScene;
+    private Set<Scene> scenes;
 
     public ObsRemote() {
         this.connected = false;
         this.recording = false;
-        this.currentScene = "No current scene";
+        this.currentScene = null;
         this.scenes = new HashSet<>();
     }
 
@@ -33,23 +32,23 @@ public class ObsRemote implements Serializable {
         this.recording = recording;
     }
 
-    public String getCurrentScene() {
+    public Scene getCurrentScene() {
         return currentScene;
     }
 
-    public void setCurrentScene(String currentScene) {
+    public void setCurrentScene(Scene currentScene) {
         this.currentScene = currentScene;
     }
 
-    public Set<String> getScenes() {
+    public Set<Scene> getScenes() {
         return scenes;
     }
 
-    public void setScenes(Set<String> scenes) {
+    public void setScenes(Set<Scene> scenes) {
         this.scenes = scenes;
     }
 
-    public void addScene(String scene) {
+    public void addScene(Scene scene) {
         this.scenes.add(scene);
     }
 

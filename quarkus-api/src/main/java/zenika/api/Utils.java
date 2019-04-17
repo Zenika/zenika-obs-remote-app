@@ -1,4 +1,4 @@
-package zenika.obs.api;
+package zenika.api;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -8,8 +8,10 @@ import org.apache.http.impl.client.CloseableHttpClient;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 import java.util.function.Consumer;
 
 public class Utils {

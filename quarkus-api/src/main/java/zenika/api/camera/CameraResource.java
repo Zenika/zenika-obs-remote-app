@@ -1,4 +1,6 @@
-package zenika.obs.api;
+package zenika.api.camera;
+
+import zenika.api.camera.CameraRemote;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -10,7 +12,8 @@ import javax.ws.rs.core.Response;
 @Path("/camera")
 @Produces(MediaType.TEXT_PLAIN)
 public class CameraResource {
-    @Inject CameraRemote remote;
+    @Inject
+    CameraRemote remote;
 
     @GET
     @Path("/move-up")

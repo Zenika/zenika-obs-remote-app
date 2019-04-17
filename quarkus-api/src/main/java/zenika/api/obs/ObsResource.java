@@ -1,11 +1,10 @@
-package zenika.obs.api;
-
-import org.json.JSONObject;
+package zenika.api.obs;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Set;
 
 @Path("/obs")
 public class ObsResource {
@@ -31,14 +30,6 @@ public class ObsResource {
                 .entity("Connection failed")
                 .build();
     }
-
-    /*@GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/connection/open")
-    public String openConnection() {
-        service.openConnection();
-        return new JSONObject(service.getRemote().isConnected()).toString();//service.getRemote().toString();
-    }*/
 
     @POST
     @Produces(MediaType.TEXT_PLAIN)
@@ -110,32 +101,23 @@ public class ObsResource {
     }
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/scenes")
-    public Response getScenes() {
-        return Response
-                .status(Response.Status.OK)
-                .entity(service.getScenes())
-                .build();
+    public Set<Scene> getScenes() {
+        return service.getScenes();
     }
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/current-scene")
-    public Response getCurrentScene() throws Exception {
-        return Response
-                .status(Response.Status.OK)
-                .entity(service.getCurrentScene())
-                .build();
+    public Scene getCurrentScene() {
+        return service.getCurrentScene();
     }
 
     @POST
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/current-scene/set/{scene}")
-    public Response setCurrentScenne(@PathParam("scene") String scene) throws Exception {
-        return Response
-                .status(Response.Status.OK)
-                .entity(service.setCurrentScene(scene))
-                .build();
+    public Scene setCurrentScene(@PathParam("scene") String scene) {
+        return service.setCurrentScene(new Scene(scene));
     }
 }
