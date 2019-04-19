@@ -30,7 +30,11 @@ First, launch the OBS application
 Then import the `Default2` profile located at *config/obs_config/Default2*
 > Profil -> Importer
 
-In the **audio mixer** box, mute *dericam* and *Mic/Aux*  
+In the **audio mixer** box mute *Mic/Aux*  
+Open vlc media player and open your camera stream :
+> Default until now is **rtsp://admin:zenika@192.168.1.58:554/11**
+
+In the **souces** box select the `dericam-vlc` source and then select the vlc media player's window
 
 You can now start streaming
 
