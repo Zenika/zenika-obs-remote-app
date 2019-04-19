@@ -21,7 +21,7 @@ const base = "http://localhost:3000";
         .reply(200);
 
       const wrapper = shallowMount(Commands);
-      wrapper.startRecording();
+     // wrapper.vm.$options.methods.startRecording();
     });
   });
 });
