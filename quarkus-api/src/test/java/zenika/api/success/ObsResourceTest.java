@@ -1,10 +1,16 @@
 package zenika.api.success;
 
 import io.quarkus.test.junit.QuarkusTest;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
+import zenika.api.obs.Scene;
+
+import java.util.HashSet;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.hasItems;
 
 @QuarkusTest
 public class ObsResourceTest {
@@ -34,12 +40,12 @@ public class ObsResourceTest {
     }
 
     @Test
-    public void testGetScenesSuccess() throws Exception {
+    public void testGetScenesSuccess() {
         given()
                 .when().get("/obs/scenes")
                 .then()
                 .statusCode(200)
-                .body(is("[OBS, Main]"));
+                .body("name", hasItems("OBS", "Main"));
     }
 
     @Test

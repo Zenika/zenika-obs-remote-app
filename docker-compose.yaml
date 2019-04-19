@@ -21,9 +21,16 @@ services:
     volumes:
       - ./config/api_config/config.js:/usr/src/app/config.js
     environment:
-      - NODE_ENV=dev
+      - NODE_ENV=prod
     expose:
       - "3000"
+    network_mode: "host"
+
+  quarkus-api:
+    container_name: quarkus-api
+    build: ./quarkus-api
+    expose:
+      - "3020"
     network_mode: "host"
 
   web-app:
@@ -31,14 +38,14 @@ services:
     build: ./web-app
     volumes:
       - ./config/webapp_config/api.json:/app/api.json
-    env_file: config/webapp_config/.env.development
+    env_file: config/webapp_config/.env.production
     expose:
       - "8080"
     network_mode: "host"
 
-networks:
-  obs-network:
-    driver: overlay
+#networks:
+#  obs-network:
+#    driver: overlay
 #  proxy-webapp-network:
 #    driver: overlay
 #  api-webapp-network:
