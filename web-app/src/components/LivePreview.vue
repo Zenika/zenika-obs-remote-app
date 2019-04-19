@@ -38,7 +38,7 @@ import { Scene } from '@/entities/scene';
 import api from '../../api.json';
 
 const axios = require('axios');
-const apiURL = process.env.VUE_APP_API_URL;
+const cameraAPI = process.env.VUE_APP_CAMERA_API_URL;
 
 export default {
   name: 'LivePreview',
@@ -60,27 +60,27 @@ export default {
     };
   },
   methods: {
-    moveCamera: async function (direction) {
+    moveCamera: async function(direction) {
       switch (direction) {
         case 'up': {
-          axios.get(apiURL.concat(api.commands.move_up));
-          //  .then(setTimeout(axios.get(apiURL.concat(api.commands.stop_moving)), 2000));
+          axios.get(cameraAPI.concat(api.commands.move_up));
+          //  .then(setTimeout(axios.get(cameraAPI.concat(api.commands.stop_moving)), 2000));
           break;
         }
         case 'down': {
-          axios.get(apiURL.concat(api.commands.move_down));
+          axios.get(cameraAPI.concat(api.commands.move_down));
           break;
         }
         case 'right': {
-          axios.get(apiURL.concat(api.commands.move_right));
+          axios.get(cameraAPI.concat(api.commands.move_right));
           break;
         }
         case 'left': {
-          axios.get(apiURL.concat(api.commands.move_left));
+          axios.get(cameraAPI.concat(api.commands.move_left));
           break;
         }
         case 'stop': {
-          axios.get(apiURL.concat(api.commands.stop_moving));
+          axios.get(cameraAPI.concat(api.commands.stop_moving));
           break;
         }
       }

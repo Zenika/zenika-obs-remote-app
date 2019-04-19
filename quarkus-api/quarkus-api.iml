@@ -18,6 +18,12 @@
     <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-json-binding-provider:4.0.0.CR2" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-json-p-provider:4.0.0.CR2" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-resteasy-jsonb:0.13.0" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-jsonb:0.13.0" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse:yasson:1.0.3" level="project" />
+    <orderEntry type="library" name="Maven: javax.json.bind:javax.json.bind-api:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-json-binding-provider:4.0.0.CR2" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-json-p-provider:4.0.0.CR2" level="project" />
+    <orderEntry type="library" name="Maven: io.quarkus:quarkus-resteasy-jsonb:0.13.0" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-resteasy:0.13.0" level="project" />
     <orderEntry type="library" name="Maven: io.quarkus:quarkus-undertow:0.13.0" level="project" />
     <orderEntry type="library" name="Maven: io.undertow:undertow-servlet:2.0.19.Final" level="project" />
